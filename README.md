@@ -1,4 +1,4 @@
-# SimpVm
+# SimpVM
 ## Purpose
 A simple stack-based VM with the following commands:
 * `push <num>` - pushes `<num>` onto stack
@@ -13,6 +13,12 @@ A simple stack-based VM with the following commands:
 	make
 	./simpVM example.txt
 Runs the commands in `example.txt`.
+
+## Future
+* Stack manipulation commands (roll, switch, etc.)
+* Labels instead of line numbers
+* New syntax: if-then-else, while
+Those last two will probably be better put in a compiler that turns C-like syntax into the current syntax.
 
 ## License
 This code is provided as is, with no guarantee of it working, simply for my own illumination.
