@@ -9,11 +9,11 @@
 
 int main(int argc, char** argv) {
 				long int linenums[MAX_LINES];
-				node* stackHead = NULL;
-				FILE * inFile;
-
+				node* stack = NULL;
 				int command = 0;
 				int argument = 0;
+				FILE * inFile;
+
 
 				if (argc > 1) {
 								inFile = fopen(argv[1], "r");
@@ -21,14 +21,12 @@ int main(int argc, char** argv) {
 								inFile = stdin;
 				}
 
-				/* stackTest(stackHead); */
-				/* readTest(inFile); */
-
 				readLineNumbers(inFile, linenums, MAX_LINES);
 
-				readCommand(inFile, &command, &argument);
-
-				printf("%d %d\n", command, argument);
+				while (!feof(inFile)) {
+								readCommand(inFile, &command, &argument);
+								/* executeCommand(inFile, stack, command, argument); */
+				}
 
 				if (inFile != stdin) {
 								fclose(inFile);
