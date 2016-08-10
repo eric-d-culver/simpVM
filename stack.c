@@ -45,6 +45,9 @@ void freeStack(node** stack) {
 								temp->next = NULL;
 				}
 
+				free(temp);
+				*stack = NULL;
+
 				return;
 }
 

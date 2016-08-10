@@ -36,6 +36,8 @@ int main(int argc, char** argv) {
 								fclose(rt->inFile);
 				}
 
+				freeStack(&(rt->stack));
+
 				free(rt);
 
 				return 0;
