@@ -2,6 +2,7 @@
 #include "commands.h"
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 void readToken(FILE* file, char* token) {
 				fscanf(file, "%s", token);
@@ -36,8 +37,14 @@ void readCommand(FILE* file, int* command, int* argument) {
 				char token[255];
 
 				readToken(file, token);
+				
+				for (int i=0; token[i]; i++) {
+								token[i] = tolower(token[i]);
+				}
 
-				if (strcmp(token,"push")==0) { 
+				if (feof(file)) {
+								*command = ENDOFFILE;
+				} else if (strcmp(token,"push")==0) { 
 								*command = PUSH;
 								readNumber(file, argument);
 				} else if (strcmp(token, "pop")==0) {
@@ -54,8 +61,6 @@ void readCommand(FILE* file, int* command, int* argument) {
 								*command = PRINT;
 				} else if (strcmp(token, "dup")==0) {
 								*command = DUP;
-				} else if (feof(file)) {
-								*command = ENDOFFILE;
 				} else {
 								*command = ERROR;
 				}
