@@ -2,35 +2,40 @@
 #include "stack.h"
 #include "read.h"
 #include "commands.h"
+#include "runtime.h"
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 #define MAX_LINES 256
 
 int main(int argc, char** argv) {
-				long int linenums[MAX_LINES];
-				node* stack = NULL;
+				runTime* rt;
 				int command = 0;
 				int argument = 0;
-				FILE * inFile;
+
+				rt = malloc(sizeof(runTime) + MAX_LINES * sizeof(long int));
+				rt->stack = NULL;
 
 
 				if (argc > 1) {
-								inFile = fopen(argv[1], "r");
+								rt->inFile = fopen(argv[1], "r");
 				} else { 
-								inFile = stdin;
+								rt->inFile = stdin;
 				}
 
-				readLineNumbers(inFile, linenums, MAX_LINES);
+				readLineNumbers(rt->inFile, rt->lineNumbers, MAX_LINES);
 
-				while (!feof(inFile)) {
-								readCommand(inFile, &command, &argument);
-								/* executeCommand(inFile, stack, command, argument); */
+				while (!feof(rt->inFile)) {
+								readCommand(rt->inFile, &command, &argument);
+								/* executeCommand(rt, command, argument); */
 				}
 
-				if (inFile != stdin) {
-								fclose(inFile);
+				if (rt->inFile != stdin) {
+								fclose(rt->inFile);
 				}
+
+				free(rt);
 
 				return 0;
 }
