@@ -20,7 +20,6 @@ int pop (node** stack) {
 								int value = temp->data;
 								*stack = temp->next;
 								free(temp);
-								(*stack)->prev = NULL;
 								return value;
 				}
 }
