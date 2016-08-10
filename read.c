@@ -54,6 +54,8 @@ void readCommand(FILE* file, int* command, int* argument) {
 								*command = PRINT;
 				} else if (strcmp(token, "dup")==0) {
 								*command = DUP;
+				} else if (feof(file)) {
+								*command = ENDOFFILE;
 				} else {
 								*command = ERROR;
 				}

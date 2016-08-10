@@ -32,6 +32,8 @@ void executeCommand(runTime* rt, int command, int argument) {
 												push(&(rt->stack), temp);
 												push(&(rt->stack), temp);
 												break;
+								case ENDOFFILE:
+												break;
 								case ERROR:
 												printf("Unrecognized command\n");
 												break;

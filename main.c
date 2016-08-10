@@ -28,6 +28,7 @@ int main(int argc, char** argv) {
 
 				while (!feof(rt->inFile)) {
 								readCommand(rt->inFile, &command, &argument);
+								/* printf("%d %d\n", command, argument); */
 								executeCommand(rt, command, argument);
 				}
 

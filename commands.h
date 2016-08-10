@@ -1,6 +1,7 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
+#define ENDOFFILE 0
 #define PUSH 1
 #define POP 2
 #define ADD 3
