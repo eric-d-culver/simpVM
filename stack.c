@@ -6,21 +6,46 @@ void push(node** stack, int data) {
 				node* newNode = malloc(sizeof(node));
 				newNode->data = data;
 				newNode->next = *stack;
+				newNode->prev = NULL;
 				*stack = newNode;
 				return;
 }
 
 int pop (node** stack) {
 				if (*stack==NULL) {
-								// empty stack
+								/* empty stack */
 								return -1;
 				} else {
 			  				node* temp = *stack;
 								int value = temp->data;
 								*stack = temp->next;
 								free(temp);
+								(*stack)->prev = NULL;
 								return value;
 				}
+}
+
+void freeStack(node** stack) {
+				node* temp = *stack;
+
+				if (temp==NULL) {
+								/* empty stack */
+								return;
+				}
+
+				/* find bottom of stack */
+				while (temp->next != NULL) {
+								temp = temp->next;
+				}
+
+				/* free to top of stack */
+				while (temp != *stack) {
+								temp = temp->prev;
+								free(temp->next);
+								temp->next = NULL;
+				}
+
+				return;
 }
 
 void stackTest(node* stack) {

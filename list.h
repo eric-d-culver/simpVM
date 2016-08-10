@@ -2,6 +2,7 @@
 #define LIST_H
 
 typedef struct _node {
+				struct _node* prev;
 				struct _node* next;
 				int data;
 } node;
