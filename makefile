@@ -10,12 +10,12 @@ LDFLAGS=
 HEADERS=list.h stack.h read.h commands.h
 CLASSES=stack.c read.c
 
-SOURCES=$(HEADERS) $(CLASSES) main.c
+SOURCES=$(CLASSES) main.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=simpVM # change to whatever the executable should be called
 
 # finally,, some make commands
-all: $(SOURCES) $(EXECUTABLE)
+all: $(HEADERS) $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
