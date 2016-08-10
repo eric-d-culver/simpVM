@@ -18,6 +18,7 @@ Runs the commands in `example.txt`.
 * Stack manipulation commands (roll, switch, etc.)
 * Labels instead of line numbers
 * New syntax: if-then-else, while
+
 Those last two will probably be better put in a compiler that turns C-like syntax into the current syntax.
 
 ## License
