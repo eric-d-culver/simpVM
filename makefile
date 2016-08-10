@@ -8,7 +8,7 @@ LDFLAGS=
 
 # second, some local variables
 HEADERS=list.h stack.h read.h execute.h commands.h runtime.h
-CLASSES=stack.c read.c
+CLASSES=stack.c read.c execute.c
 
 SOURCES=$(CLASSES) main.c
 OBJECTS=$(SOURCES:.c=.o)

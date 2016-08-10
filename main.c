@@ -6,7 +6,6 @@
 #include "runtime.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 #define MAX_LINES 256
 
@@ -29,7 +28,7 @@ int main(int argc, char** argv) {
 
 				while (!feof(rt->inFile)) {
 								readCommand(rt->inFile, &command, &argument);
-								/* executeCommand(rt, command, argument); */
+								executeCommand(rt, command, argument);
 				}
 
 				if (rt->inFile != stdin) {
