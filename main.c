@@ -1,6 +1,7 @@
 #include "list.h"
 #include "stack.h"
 #include "read.h"
+#include "execute.h"
 #include "commands.h"
 #include "runtime.h"
 #include <stdlib.h>

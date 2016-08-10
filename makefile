@@ -7,7 +7,7 @@ CFLAGS=-c $(WARNINGS)
 LDFLAGS= 
 
 # second, some local variables
-HEADERS=list.h stack.h read.h commands.h
+HEADERS=list.h stack.h read.h execute.h commands.h runtime.h
 CLASSES=stack.c read.c
 
 SOURCES=$(CLASSES) main.c
