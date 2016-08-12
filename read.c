@@ -51,6 +51,14 @@ void readCommand(FILE* file, int* command, int* argument) {
 								*command = POP;
 				} else if (strcmp(token, "add")==0) {
 								*command = ADD;
+				} else if (strcmp(token, "sub")==0) {
+								*command = SUB;
+				} else if (strcmp(token, "mul")==0) {
+								*command = MUL;
+				} else if (strcmp(token, "div")==0) {
+								*command = DIV;
+				} else if (strcmp(token, "mod")==0) {
+								*command = MOD;
 				} else if (strcmp(token, "ifeq")==0) {
 								*command = IFEQ;
 								readNumber(file, argument);

@@ -16,6 +16,22 @@ void executeCommand(runTime* rt, int command, int argument) {
 												temp = pop(&(rt->stack))+pop(&(rt->stack));
 												push(&(rt->stack), temp);
 												break;
+								case SUB:
+												temp = pop(&(rt->stack))-pop(&(rt->stack));
+												push(&(rt->stack), temp);
+												break;
+								case MUL:
+												temp = pop(&(rt->stack))*pop(&(rt->stack));
+												push(&(rt->stack), temp);
+												break;
+								case DIV:
+												temp = pop(&(rt->stack))/pop(&(rt->stack));
+												push(&(rt->stack), temp);
+												break;
+								case MOD:
+												temp = pop(&(rt->stack))%pop(&(rt->stack));
+												push(&(rt->stack), temp);
+												break;
 								case IFEQ:
 												if(pop(&(rt->stack))==0) 
 																fseek(rt->inFile,rt->lineNumbers[argument],SEEK_SET);
@@ -28,8 +44,7 @@ void executeCommand(runTime* rt, int command, int argument) {
 												printf("%d\n", temp);
 												break;
 								case DUP:
-												temp = pop(&(rt->stack));
-												push(&(rt->stack), temp);
+												temp = peek(&(rt->stack));
 												push(&(rt->stack), temp);
 												break;
 								case ENDOFFILE:

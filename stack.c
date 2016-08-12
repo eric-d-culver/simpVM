@@ -19,9 +19,19 @@ int pop (node** stack) {
 			  				node* temp = *stack;
 								int value = temp->data;
 								*stack = temp->next;
+								if (*stack != NULL) {
+												(*stack)->prev = NULL;
+								}
 								free(temp);
 								return value;
 				}
+}
+
+int peek (node** stack) {
+				if (*stack == NULL) {
+								return -1;
+				}
+				return (*stack)->data;
 }
 
 void freeStack(node** stack) {

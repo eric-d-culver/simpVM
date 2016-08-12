@@ -6,6 +6,8 @@ void push(node** stack, int data);
 
 int pop(node** stack);
 
+int peek(node** stack);
+
 void freeStack(node** stack);
 
 void stackTest(node* stack);
