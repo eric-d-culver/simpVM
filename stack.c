@@ -37,12 +37,11 @@ int peek(node** stack) {
 }
 
 void extract(node** stack, int depth) {
-				if (*stack == NULL) {
+				if (*stack == NULL || depth == 0) {
 								return;
 				} else {
-								int i;
 								node* temp = *stack;
-								for (i=0; temp->next != NULL && i < depth; i++, temp = temp->next) { ; }
+								for (int i=0; temp->next != NULL && i < depth; i++, temp = temp->next) { ; }
 								(temp->prev)->next = temp->next;
 								if (temp->next != NULL) {
 									(temp->next)->prev = temp->prev;
