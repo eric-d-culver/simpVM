@@ -8,6 +8,8 @@ int pop(node** stack);
 
 int peek(node** stack);
 
+void extract(node** stack, int depth);
+
 void freeStack(node** stack);
 
 void stackTest(node* stack);

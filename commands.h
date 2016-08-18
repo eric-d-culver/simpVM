@@ -13,6 +13,7 @@
 #define JUMP 9
 #define PRINT 10
 #define DUP 11
+#define EXTR 12
 #define ERROR -1
 
 #endif

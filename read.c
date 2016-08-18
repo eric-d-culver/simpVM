@@ -69,6 +69,9 @@ void readCommand(FILE* file, int* command, int* argument) {
 								*command = PRINT;
 				} else if (strcmp(token, "dup")==0) {
 								*command = DUP;
+				} else if (strcmp(token, "extract")==0) {
+								*command = EXTR;
+								readNumber(file, argument);
 				} else {
 								*command = ERROR;
 				}

@@ -11,7 +11,7 @@ void push(node** stack, int data) {
 				return;
 }
 
-int pop (node** stack) {
+int pop(node** stack) {
 				if (*stack==NULL) {
 								/* empty stack */
 								return -1;
@@ -27,12 +27,29 @@ int pop (node** stack) {
 				}
 }
 
-int peek (node** stack) {
+int peek(node** stack) {
 				if (*stack == NULL) {
 								return -1;
 				}
 				return (*stack)->data;
 }
+
+void extract(node** stack, int depth) {
+				if (*stack == NULL) {
+								return;
+				} else {
+								node* temp = *stack;
+								for (int i=0; temp->next != NULL && i < depth; i++, temp = temp->next) { ; }
+								(temp->prev)->next = temp->next;
+								if (temp->next != NULL)
+									(temp->next)->prev = temp->prev;
+								temp->next = *stack;
+								temp->prev = NULL;
+								(*stack)->prev = temp;
+								*stack = temp;
+				}
+}
+
 
 void freeStack(node** stack) {
 				node* temp = *stack;

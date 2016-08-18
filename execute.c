@@ -47,6 +47,9 @@ void executeCommand(runTime* rt, int command, int argument) {
 												temp = peek(&(rt->stack));
 												push(&(rt->stack), temp);
 												break;
+								case EXTR:
+												extract(&(rt->stack), argument);
+												break;
 								case ENDOFFILE:
 												break;
 								case ERROR:
