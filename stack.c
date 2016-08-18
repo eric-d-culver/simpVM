@@ -7,6 +7,8 @@ void push(node** stack, int data) {
 				newNode->data = data;
 				newNode->next = *stack;
 				newNode->prev = NULL;
+				if (*stack != NULL)
+								(*stack)->prev = newNode;
 				*stack = newNode;
 				return;
 }
@@ -38,15 +40,18 @@ void extract(node** stack, int depth) {
 				if (*stack == NULL) {
 								return;
 				} else {
+								int i;
 								node* temp = *stack;
-								for (int i=0; temp->next != NULL && i < depth; i++, temp = temp->next) { ; }
+								for (i=0; temp->next != NULL && i < depth; i++, temp = temp->next) { ; }
 								(temp->prev)->next = temp->next;
-								if (temp->next != NULL)
+								if (temp->next != NULL) {
 									(temp->next)->prev = temp->prev;
+								}
 								temp->next = *stack;
 								temp->prev = NULL;
 								(*stack)->prev = temp;
 								*stack = temp;
+								return;
 				}
 }
 
